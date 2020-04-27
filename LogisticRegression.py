@@ -32,8 +32,8 @@ def GradientCalc(input, output, labels,theta):
     theta0=(1 / ex_num) * np.dot(input[0,:], (output - labels).transpose())
     #adding regularization term
     reg_value=0.0005
-    theta=(1 / ex_num) * np.dot(input, (output - labels).transpose())+ (reg_value/(2*ex_num))*theta*theta
-    theta[0,:]=theta0
+    theta=(1 / ex_num) * np.dot(input, (output - labels).transpose())+ (reg_value / (2 * ex_num)) * theta * theta
+    theta[0, :]=theta0
     return theta
 
 
@@ -41,7 +41,7 @@ class LogisticRegressionModel():
     def __init__(self, inp_size, out_size):
         self.inp_size = inp_size
         self.out_size = out_size
-        # random weight initialization from standard distribution and adding bias term
+        # random weight initialization from uniform distribution and adding bias term
         self.theta = np.random.random((inp_size + 1, out_size))
 
     def feedforward(self, input):
@@ -69,8 +69,8 @@ class LogisticRegressionModel():
                 #checking if batch index wont exceed input array length
                 if (np.shape(input)[1]-1-temp>batch_size):
                     # cutting batch from input matrix
-                    batch=input[:,temp:temp+batch_size]
-                    batchlabels=labels[:,temp:temp+batch_size]
+                    batch=input[:, temp:temp+batch_size]
+                    batchlabels=labels[:, temp:temp+batch_size]
                     temp+=batch_size
                 else:
                     batch=input[:,temp:(np.shape(input)[1]-1)]
