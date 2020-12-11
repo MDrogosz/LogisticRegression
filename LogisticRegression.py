@@ -2,7 +2,7 @@ import sys
 import numpy as np
 import pandas as pd
 
-# simple logistic regression model to classify MNIST dataset images
+# simple logistic regression model meant to classify MNIST dataset images
 # input data is expected to be matrix of images unrolled to vectors
 # labels are expected to be matrix of vectors with 1 in proper position and 0 in others
 
